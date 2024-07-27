@@ -1,112 +1,54 @@
-[![MIT License](https://ansible.l3d.space/svg/l3d.i3wm_license.svg)](LICENSE)
+[![Ansible Galaxy](https://ansible.l3d.space/svg/roles-ansible.sway.svg)](https://galaxy.ansible.com/ui/standalone/roles/roles-ansible/sway)
+[![MIT License](https://ansible.l3d.space/svg/roles-ansible.sway.svg)](LICENSE)
+[![Maintainance](https://ansible.l3d.space/svg/roles-ansible.sway_maintainance.svg)](https://ansible.l3d.space/#roles-ansible.sway)
 
 SWAY Window Manager - ansible role
 =========================================
 
-```
-WORK IN PROGRESS
-IGNORE ALL OTHER PART IN README
-```
+[![SWAYWM](https://swaywm.org/logo.png)](https://swaywm.org/)
+Sway is a tiling Wayland compositor and a drop-in replacement for the i3 window manager for X11. It supports most of i3's features, plus a few extras.
 
-Install and deploy a basic configuration of [I3 Window Manager](https://i3wm.org/) via ansible.<br/>
-Optionally configure your resolution, which applications will be bound to which screen and what will be included in the autostart.<br/>
-If you want to use wayland instead of xorg, think about using [sway](https://swaywm.org/) as window manager. The corresponding ansible is located on [github.com/roles-ansible/role-sway](https://github.com/roles-ansible/role-sway.git).
+Sway allows you to arrange your application windows logically, rather than spatially. Windows are arranged into a grid by default which maximizes the efficiency of your screen and can be quickly manipulated using only the keyboard.
 
-### Get it directly from Ansible Galaxy
-```bash
-$ ansible-galaxy install l3d.i3wm
-```
+With this ansible role you deploy a sway configuration with optionally swaylock, waybar and fuzzel.
 
- Role Variables
---------------
+## Variables
+| Variable | Value | Description |
+| -------- | ----- | ----------- |
+| ``sway__user_list`` | *(see [defaults/main.yml](defaults/main.yml)* | A list of all users and their home directory |
+| ``sway__dynamic_names`` | ``false`` | 
+| ``sway__logo_key`` | ``Mod4`` | Logo Key |
+| ``sway__term`` | ``foot`` | Sway default terminal |
+| ``sway__reload`` | ``$mod+Shift+r`` | Key binding to reload sway config |
+| ``sway__term_pkgs | *(see [defaults/main.yml](defaults/main.yml)* | Packages for sway terminal |
+| ``sway__keyboard_settings`` | ``true`` | Set Keyboard language settings in sway config |
+| ``sway__keyboard_lang`` | ``de`` | German |
+| ``sway__lock`` | *(see [defaults/main.yml](defaults/main.yml)* | Kommand to run for locking sway |
+| ``sway__swaylock`` |  *(see [defaults/main.yml](defaults/main.yml)*  | Default swaylock settings |
+| ``sway__waybar`` | ``true`` | Enable waybar as bar |
+| ``sway__waybar_modules_left`` | *(see [defaults/main.yml](defaults/main.yml)* | Left waybar modules |
+| ``sway__waybar_modules_center`` | *(see [defaults/main.yml](defaults/main.yml)* | Center waybar modules |
+| ``sway__waybar_modules_right`` | *(see [defaults/main.yml](defaults/main.yml)* | Right waybar modules |
+| ``sway__launcher`` | ``fuzzel`` | Command for launcher |
+| ``sway__install_launcher`` | ``['fuzzel']`` | List for launcher packages |
+| ``sway__waybar_font_size`` | ``13px`` | Waybar font size |
+| ``sway__waybar_light_up`` | ``light -A 1`` | Waybar light module |
+| ``sway__waybar_light_down`` | ``light -U 1`` | Waybar  light module |
+| ``sway__wlsunset`` | ``true`` | Enable wlsunset |
+| ``sway__wlsunset_params`` | ``-l 49 -L 8.4`` |
+| ``sway__keybindings`` | *(see [defaults/main.yml](defaults/main.yml)* | List of sway keybindings |
+| ``sway__keybindings_extra`` | ``[]`` | Empty list for additional keybindings |
+| ``submodules_versioncheck`` | ``false`` | Basic Versionscheck to prevent running older version of this role |
 
-For a good overview about possible variables, please have a look into ``defaults/main.yml``.
 
-## Example Usage
+
+## Example Playbook
 ```yaml
- - name: install i3wm on localhost
+ - name: install sway on localhost
    hosts: localhost
-   vars_files:
-     - vars/main.yml
    roles:
-     - {role: l3d.i3wm, tags[i3, i3wm]}
-```
-*`vars/main.yml`*
-
-```yaml
-    # User List for i3wm config
-    i3wm_user_list:
-      - user: "alice"
-        home: "/home/alice"
-      - user: "bob"
-        home: "/home/bob"
-
-    # background image
-    i3_desktop_background: "~/Bilder/wallpaper.jpg"
-
-    # you want additional keybindings?
-    i3_keybindings_extra:
-      - keybinding:
-        name: Volume (mute/unmute)
-        key: $mod+F12
-        exec: --no-startup-id amixer sset Master toggle
-      - keybinding:
-        name: Volue (default)
-        key: $mod+Shift+F12
-        exec: --no-startup-id amixer sset Master 40%
-
-    # how your monitors are configured
-    i3_monitors:
-      - monitor:
-        id: 1
-        output: "HDMI-A-0"
-        mode: "1920x1080"
-        pos: "0x0"
-        rotate: "normal"
-        workspaces: [0,1,2,3,4,5,6]
-      - monitor:
-        id: 2
-        output: "DisplayPort-0"
-        mode: "1920x1080"
-        pos: "1920x0"
-        rotate: "normal"
-        workspaces: [7,8,9]
-
-    # startup applications
-    i3_applications:
-      - application:
-        class: "Firefox"
-        name: "firefox"
-        workspace: 1
-        on_startup: false
-      - application:
-        class: "Code"
-        name: "code"
-        workspace: 7
-        on_startup: true
-
-    # lock your screen after 90 min
-    enable_lock_after_time: true
-
-    files/rofi/dracula_dark.rasi
-
-    # enable multiple i3blocks options
-    i3_i3blocks_options:
-      weather: true
-      audio_volume: true
-      wifisignal: true
-      ipaddress: true
-      clock: true
-      battery: true
-      ddate: true
-
-    # choose rofi theme
-    i3_rofi_config_file: 'files/rofi/dracula_dark.rasi'
+     - {role: roles-ansible.sway, tags: sway}
 ```
 
-## Requirements
-The ``community.general`` collection is required for some parts of this ansible role.
-You can install it with this command:
-```bash
-ansible-galaxy collection install -r requirements.yml --upgrade
-```
+## License
+[![MIT License](https://ansible.l3d.space/svg/roles-ansible.sway.svg)](LICENSE)

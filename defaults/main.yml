@@ -96,4 +96,4 @@ sway__keybindings:
 sway__keybindings_extra: []
 
 # version check for this role?
-submodules_versioncheck: true
+submodules_versioncheck: false
