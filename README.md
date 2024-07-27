@@ -1,5 +1,5 @@
 [![Ansible Galaxy](https://ansible.l3d.space/svg/roles-ansible.sway.svg)](https://galaxy.ansible.com/ui/standalone/roles/roles-ansible/sway)
-[![MIT License](https://ansible.l3d.space/svg/roles-ansible.sway.svg)](LICENSE)
+[![MIT License](https://ansible.l3d.space/svg/roles-ansible.sway_license.svg)](LICENSE)
 [![Maintainance](https://ansible.l3d.space/svg/roles-ansible.sway_maintainance.svg)](https://ansible.l3d.space/#roles-ansible.sway)
 
 SWAY Window Manager - ansible role
@@ -51,4 +51,4 @@ With this ansible role you deploy a sway configuration with optionally swaylock,
 ```
 
 ## License
-[![MIT License](https://ansible.l3d.space/svg/roles-ansible.sway.svg)](LICENSE)
+[![MIT License](https://ansible.l3d.space/svg/roles-ansible.sway_license.svg)](LICENSE)
