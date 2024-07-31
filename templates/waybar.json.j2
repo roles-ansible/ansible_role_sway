@@ -134,7 +134,8 @@
         "format-linked": "{ifname} (No IP) ⛒",
         "format-disconnected": "Disconnected ⚠",
         "format-alt": "{ifname}: {ipaddr}/{cidr}",
-        "on-click": "gnome-control-center network"
+        "on-click": "gnome-control-center network",
+        "on-click-right": "gnome-control-center wifi"
     },
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
@@ -153,14 +154,16 @@
             "car": "",
             "default": ["", "", ""]
         },
-        "on-click": "pavucontrol"
+        "on-click": "pavucontrol",
+        "on-click-right": "qpwgraph"
     },
     "custom/weather": {
         "format": "{}",
         "tooltip": true,
         "interval": 300,
         "exec": "{{ swayusr.home }}/.config/waybar/wttr.py",
-        "return-type": "json"
+        "return-type": "json",
+        "on-click-middle": "gnome-weather"
     },
      "custom/power": {
          "format": "",

@@ -22,7 +22,6 @@
     - 'swayimg'
     - 'wdisplays'
     - 'cmatrix'
-    - 'pavucontrol'
 
 - name: Ensure font-awesome is installed
   ansible.builtin.apt:
