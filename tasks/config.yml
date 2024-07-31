@@ -55,6 +55,7 @@
     mode: '0640'
     owner: "{{ swayusr.user }}"
     group: "{{ swayusr.user }}"
+    backup: true
   loop: "{{ sway__user_list | flatten(1) }}"
   loop_control:
     label: "{{ swayusr.home }}/.swaylock/config"
@@ -68,6 +69,7 @@
     mode: '0640'
     owner: "{{ swayusr.user }}"
     group: "{{ swayusr.user }}"
+    backup: true
   loop: "{{ sway__user_list | flatten(1) }}"
   loop_control:
     label: "{{ swayusr.home }}/.config/sway/config"
