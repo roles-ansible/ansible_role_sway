@@ -1,0 +1,12 @@
+---
+# See https://elis.nu/blog/2021/02/detailed-setup-of-screen-sharing-in-sway/
+- name: Ensure waybar is installed.
+  ansible.builtin.package:
+    name: "{{ item }}"
+    state: "present"
+  become: true
+  with_items:
+    - 'xdg-desktop-portal-wlr'
+    - 'xdg-desktop-portal-gtk'
+    - 'slurp'
+    - 'pipewire'
