@@ -90,7 +90,7 @@ sway__keybindings:
     exec: --no-startup-id light -A 6
   - keybinding:
     name: display settings
-    key: XF86WakeUp
+    key: $mod+Shift+F7
     exec: wdisplays
 
 sway__keybindings_extra: []
