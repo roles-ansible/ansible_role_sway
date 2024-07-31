@@ -28,13 +28,13 @@ def main():
         status = {
             "text": "Online",
             "tooltip": "Internet connection is active",
-            "class": "online"
+            "class": "pingonline"
         }
     else:
         status = {
             "text": "Offline",
             "tooltip": "No internet connection",
-            "class": "offline"
+            "class": "pingoffline"
         }
     print(json.dumps(status))
     sys.stdout.flush()
