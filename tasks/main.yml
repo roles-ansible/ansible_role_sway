@@ -4,10 +4,6 @@
     file: "versioncheck.yml"
   when: submodules_versioncheck | bool
 
-# - name: Register variables
-#   ansible.builtin.import_tasks:
-#     file: variables.yml
-
 - name: Ensure i3 packages are installed [Debian]
   ansible.builtin.include_tasks:
     file: "setup-Debian.yml"
@@ -30,3 +26,12 @@
     loop_var: swayusr
     label: "{{ swayusr.home }}/.config/waybar/"
   when: sway__waybar | bool
+
+- name: Install requirements for desktop sharing like pipewire
+  ansible.builtin.include_tasks:
+    file: "pipewire.yml"
+  loop: "{{ sway__user_list | flatten(1) }}"
+  loop_control:
+    loop_var: swayusr
+    label: "{{ swayusr.home }}/.config/waybar/"
+  when: sway__pipewire | bool

@@ -93,6 +93,7 @@ sway__keybindings:
     name: display settings
     key: $mod+Shift+F7
     exec: wdisplays
+sway__pipewire: true
 
 sway__keybindings_extra: []
 

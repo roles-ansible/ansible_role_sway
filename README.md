@@ -38,6 +38,7 @@ With this ansible role you deploy a sway configuration with optionally swaylock,
 | ``sway__wlsunset_params`` | ``-l 49 -L 8.4`` |
 | ``sway__keybindings`` | *(see [defaults/main.yml](defaults/main.yml)* | List of sway keybindings |
 | ``sway__keybindings_extra`` | ``[]`` | Empty list for additional keybindings |
+| ``sway__pipewire`` | ``[]`` | Install some requirements for desktop sharing... |
 | ``submodules_versioncheck`` | ``false`` | Basic Versionscheck to prevent running older version of this role |
 
 
