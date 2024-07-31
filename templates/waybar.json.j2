@@ -166,6 +166,12 @@
          "format": "",
          "on-click": "wlogout",
          "tooltip": false
+    },
+    "custom/ping": {
+         "format": "{}",
+          "exec": "{{ swayusr.home }}/.config/waybar/ping.py",
+          "interval": 60,
+          "return-type": "json"
     }
 }
 

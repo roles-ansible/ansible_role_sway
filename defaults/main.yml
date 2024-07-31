@@ -27,6 +27,7 @@ sway__waybar_modules_right:
   - "custom/weather"
   - "pulseaudio"
   - "network"
+  - "custom/ping"
   - "cpu"
   - "memory"
   - "disk"
