@@ -25,6 +25,17 @@
     mode: '0750'
     owner: "{{ swayusr.user }}"
     group: "{{ swayusr.user }}"
+    backup: true
+
+- name: Deploy ping script
+  become: true
+  ansible.builtin.template:
+    src: 'templates/ping.py.j2'
+    dest: "{{ swayusr.home }}/.config/waybar/ping.py"
+    mode: '0750'
+    owner: "{{ swayusr.user }}"
+    group: "{{ swayusr.user }}"
+    backup: true
 
 - name: Deploy waybar stylesheet
   become: true
@@ -34,6 +45,7 @@
     mode: '0640'
     owner: "{{ swayusr.user }}"
     group: "{{ swayusr.user }}"
+    backup: true
 
 - name: Deploy waybar config
   become: true
@@ -43,3 +55,4 @@
     mode: '0640'
     owner: "{{ swayusr.user }}"
     group: "{{ swayusr.user }}"
+    backup: true
