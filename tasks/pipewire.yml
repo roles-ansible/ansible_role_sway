@@ -8,5 +8,16 @@
   with_items:
     - 'xdg-desktop-portal-wlr'
     - 'xdg-desktop-portal-gtk'
+    - 'xdg-desktop-portal'
     - 'slurp'
     - 'pipewire'
+
+- name: Deploy waybar weather script
+  become: true
+  ansible.builtin.template:
+    src: 'templates/50-systemd-user.conf.j2'
+    dest: '/etc/sway/config.d/50-systemd-user.conf'
+    mode: '0644'
+    owner: 'root'
+    group: 'root'
+    backup: true
