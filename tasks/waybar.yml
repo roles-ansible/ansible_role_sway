@@ -9,6 +9,7 @@
     - 'wlogout'
     - 'qpwgraph'
     - 'pavucontrol'
+    - 'light'
 
 - name: Create waybar config folder
   become: true
@@ -58,3 +59,12 @@
     owner: "{{ swayusr.user }}"
     group: "{{ swayusr.user }}"
     backup: true
+
+- name: Ensure the SUID bit is set on /usr/bin/light
+  become: true
+  ansible.builtin.file:
+    path: '/usr/bin/light'
+    mode: '4755'
+    owner: 'root'
+    group: 'root'
+  when: sway__waybar_light_suid | bool

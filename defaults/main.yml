@@ -45,6 +45,7 @@ sway__install_launcher: ['fuzzel']
 sway__waybar_font_size: '13px'
 sway__waybar_light_up: 'light -A 1'
 sway__waybar_light_down: 'light -U 1'
+sway__waybar_light_suid: true
 sway__wlsunset: true
 sway__wlsunset_params: '-l 49 -L 8.4'
 
