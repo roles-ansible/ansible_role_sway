@@ -88,6 +88,14 @@ input type:keyboard {
     # Start your launcher
     bindsym $mod+d exec $menu
 
+{% if sway__notification_center %}
+    # Sway Notification Center
+    exec swaync
+
+    # Toggle control center
+    bindsym $mod+Shift+n exec swaync-client -t -sw
+{% endif %}
+
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
     # Despite the name, also works for non-floating windows.
