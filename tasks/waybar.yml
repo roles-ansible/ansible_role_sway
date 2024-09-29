@@ -40,6 +40,16 @@
     group: "{{ swayusr.user }}"
     backup: true
 
+- name: Deploy clock script
+  become: true
+  ansible.builtin.template:
+    src: 'templates/dtg_clock.sh.j2'
+    dest: "{{ swayusr.home }}/.config/waybar/dtg_clock.sh"
+    mode: '0750'
+    owner: "{{ swayusr.user }}"
+    group: "{{ swayusr.user }}"
+    backup: true
+
 - name: Deploy waybar stylesheet
   become: true
   ansible.builtin.template:
