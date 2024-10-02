@@ -39,6 +39,7 @@ sway__waybar_modules_right:
   - "custom/power"
   - "clock"
   - "tray"
+  - "custom/notification"
 
 sway__launcher: 'fuzzel'
 sway__install_launcher: ['fuzzel']
