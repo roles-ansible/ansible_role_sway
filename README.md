@@ -6,6 +6,7 @@ SWAY Window Manager - ansible role
 =========================================
 
 [![SWAYWM](https://swaywm.org/logo.png)](https://swaywm.org/)
+
 Sway is a tiling Wayland compositor and a drop-in replacement for the i3 window manager for X11. It supports most of i3's features, plus a few extras.
 
 Sway allows you to arrange your application windows logically, rather than spatially. Windows are arranged into a grid by default which maximizes the efficiency of your screen and can be quickly manipulated using only the keyboard.
@@ -20,7 +21,7 @@ With this ansible role you deploy a sway configuration with optionally swaylock,
 | ``sway__logo_key`` | ``Mod4`` | Logo Key |
 | ``sway__term`` | ``foot`` | Sway default terminal |
 | ``sway__reload`` | ``$mod+Shift+r`` | Key binding to reload sway config |
-| ``sway__term_pkgs | *(see [defaults/main.yml](defaults/main.yml)* | Packages for sway terminal |
+| ``sway__term_pkgs`` | *(see [defaults/main.yml](defaults/main.yml)* | Packages for sway terminal |
 | ``sway__keyboard_settings`` | ``true`` | Set Keyboard language settings in sway config |
 | ``sway__keyboard_lang`` | ``de`` | German |
 | ``sway__lock`` | *(see [defaults/main.yml](defaults/main.yml)* | Kommand to run for locking sway |
