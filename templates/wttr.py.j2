@@ -125,7 +125,13 @@ for i in range(23):
         weather_raw = requests.get(f"https://{LANG}.wttr.in/?format=j1", timeout=42)
         if weather_raw.status_code == 200:
             weather = weather_raw.json()
-            break
+            if weather["nearest_area"][0]["country"][0]["value"] == "United States of America":
+                weather_raw = requests.get(f"https://{LANG}.wttr.in/Karlsruhe?format=j1", timeout=42)
+                if weather_raw.status_code == 200:
+                    weather = weather_raw.json()
+                    break
+            else:
+                break
     except requests.ConnectionError:
         if i == 22:
             sys.exit()
