@@ -21,15 +21,15 @@ With this ansible role you deploy a sway configuration with optionally swaylock,
 | ``sway__logo_key`` | ``Mod4`` | Logo Key |
 | ``sway__term`` | ``foot`` | Sway default terminal |
 | ``sway__reload`` | ``$mod+Shift+r`` | Key binding to reload sway config |
-| ``sway__term_pkgs`` | *(see [defaults/main.yml](defaults/main.yml)* | Packages for sway terminal |
+| ``sway__term_pkgs`` | *(see [defaults/main.yml](defaults/main.yml))* | Packages for sway terminal |
 | ``sway__keyboard_settings`` | ``true`` | Set Keyboard language settings in sway config |
 | ``sway__keyboard_lang`` | ``de`` | German |
-| ``sway__lock`` | *(see [defaults/main.yml](defaults/main.yml)* | Kommand to run for locking sway |
-| ``sway__swaylock`` |  *(see [defaults/main.yml](defaults/main.yml)*  | Default swaylock settings |
+| ``sway__lock`` | *(see [defaults/main.yml](defaults/main.yml))* | Kommand to run for locking sway |
+| ``sway__swaylock`` |  *(see [defaults/main.yml](defaults/main.yml))*  | Default swaylock settings |
 | ``sway__waybar`` | ``true`` | Enable waybar as bar |
-| ``sway__waybar_modules_left`` | *(see [defaults/main.yml](defaults/main.yml)* | Left waybar modules |
-| ``sway__waybar_modules_center`` | *(see [defaults/main.yml](defaults/main.yml)* | Center waybar modules |
-| ``sway__waybar_modules_right`` | *(see [defaults/main.yml](defaults/main.yml)* | Right waybar modules |
+| ``sway__waybar_modules_left`` | *(see [defaults/main.yml](defaults/main.yml))* | Left waybar modules |
+| ``sway__waybar_modules_center`` | *(see [defaults/main.yml](defaults/main.yml))* | Center waybar modules |
+| ``sway__waybar_modules_right`` | *(see [defaults/main.yml](defaults/main.yml))* | Right waybar modules |
 | ``sway__launcher`` | ``fuzzel`` | Command for launcher |
 | ``sway__install_launcher`` | ``['fuzzel']`` | List for launcher packages |
 | ``sway__waybar_font_size`` | ``13px`` | Waybar font size |
@@ -37,7 +37,7 @@ With this ansible role you deploy a sway configuration with optionally swaylock,
 | ``sway__waybar_light_down`` | ``light -U 1`` | Waybar  light module |
 | ``sway__wlsunset`` | ``true`` | Enable wlsunset |
 | ``sway__wlsunset_params`` | ``-l 49 -L 8.4`` |
-| ``sway__keybindings`` | *(see [defaults/main.yml](defaults/main.yml)* | List of sway keybindings |
+| ``sway__keybindings`` | *(see [defaults/main.yml](defaults/main.yml))* | List of sway keybindings |
 | ``sway__keybindings_extra`` | ``[]`` | Empty list for additional keybindings |
 | ``sway__pipewire`` | ``[]`` | Install some requirements for desktop sharing... |
 | ``sway__notification_center`` | ``true`` | Use way notification center for notifications |
