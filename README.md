@@ -16,7 +16,7 @@ With this ansible role you deploy a sway configuration with optionally swaylock,
 ## Variables
 | Variable | Value | Description |
 | -------- | ----- | ----------- |
-| ``sway__user_list`` | *(see [defaults/main.yml](defaults/main.yml)* | A list of all users and their home directory |
+| ``sway__user_list`` | *(see [defaults/main.yml](defaults/main.yml))* | A list of all users and their home directory |
 | ``sway__dynamic_names`` | ``false`` | 
 | ``sway__logo_key`` | ``Mod4`` | Logo Key |
 | ``sway__term`` | ``foot`` | Sway default terminal |
