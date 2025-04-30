@@ -1,7 +1,68 @@
 ---
-- name: Ensure i3 packages are installed  # noqa: H1901
-  community.general.pacman:
-    name: "{{ i3_packages }}"
-    state: present
-    update_cache: true
+- name: Create the `aur_builder` user
   become: true
+  ansible.builtin.user:
+    name: aur_builder
+    create_home: yes
+    group: wheel
+
+- name: Allow the `aur_builder` user to run `sudo pacman` without a password
+  become: true
+  ansible.builtin.lineinfile:
+    path: /etc/sudoers.d/11-install-aur_builder
+    line: 'aur_builder ALL=(ALL) NOPASSWD: /usr/bin/pacman'
+    create: yes
+    mode: 0644
+    validate: 'visudo -cf %s'
+
+- name: Ensure swaywm is installed from AUR
+  kewlfft.aur.aur:
+    name: "{{ item }}"
+    state: present
+    use: auto
+  become: true
+  become_user: aur_builder
+  with_items:
+    - 'sway'
+    - 'swaylock'
+    - 'swaybg'
+    - 'swayidle'
+    - 'wdisplays'
+    - 'waybar'
+    - 'cmatrix'
+
+- name: Ensure font-awesome is installed from AUR
+  kewlfft.aur.aur:
+    name: "ttf-font-awesome"
+    state: present
+    use: auto
+  become: true
+  become_user: aur_builder
+  when: sway__dynamic_names | bool
+
+- name: Ensure terminal Packages are installed from AUR
+  kewlfft.aur.aur:
+    name: "{{ item }}"
+    state: present
+    use: auto
+  become: true
+  become_user: aur_builder
+  with_items: "{{ sway__term_pkgs }}"
+
+- name: Ensure launcher Packages are installed from AUR
+  kewlfft.aur.aur:
+    name: "{{ item }}"
+    state: present
+    use: auto
+  become: true
+  become_user: aur_builder
+  with_items: "{{ sway__install_launcher }}"
+
+- name: Ensure sway notification center is installed from AUR
+  kewlfft.aur.aur:
+    name: "swaync"
+    state: present
+    use: auto
+  become: true
+  become_user: aur_builder
+  when: sway__notification_center | bool
