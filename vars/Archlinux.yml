@@ -8,6 +8,10 @@ sway_arch_packages:
   - 'wdisplays'
   - 'waybar'
   - 'cmatrix'
+  - 'qpwgraph'
+  - 'pavucontrol'
+  - 'wlogout'
+  - 'light'
   - "{{ sway__term_pkgs }}"
   - "{{ sway__install_launcher }}"
   - "{{ 'ttf-font-awesome' if sway__dynamic_names | bool else '' }}"
