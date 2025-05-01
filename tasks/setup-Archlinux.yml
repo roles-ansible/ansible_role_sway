@@ -15,54 +15,27 @@
     mode: 0644
     validate: 'visudo -cf %s'
 
-- name: Ensure swaywm is installed from AUR
+- name: Ensure required sway packages are installed from AUR
   kewlfft.aur.aur:
     name: "{{ item }}"
     state: present
     use: auto
   become: true
   become_user: aur_builder
-  with_items:
-    - 'sway'
-    - 'swaylock'
-    - 'swaybg'
-    - 'swayidle'
-    - 'wdisplays'
-    - 'waybar'
-    - 'cmatrix'
-
-- name: Ensure font-awesome is installed from AUR
-  kewlfft.aur.aur:
-    name: "ttf-font-awesome"
-    state: present
-    use: auto
-  become: true
-  become_user: aur_builder
-  when: sway__dynamic_names | bool
-
-- name: Ensure terminal Packages are installed from AUR
-  kewlfft.aur.aur:
-    name: "{{ item }}"
-    state: present
-    use: auto
-  become: true
-  become_user: aur_builder
-  with_items: "{{ sway__term_pkgs }}"
-
-- name: Ensure launcher Packages are installed from AUR
-  kewlfft.aur.aur:
-    name: "{{ item }}"
-    state: present
-    use: auto
-  become: true
-  become_user: aur_builder
-  with_items: "{{ sway__install_launcher }}"
-
-- name: Ensure sway notification center is installed from AUR
-  kewlfft.aur.aur:
-    name: "swaync"
-    state: present
-    use: auto
-  become: true
-  become_user: aur_builder
-  when: sway__notification_center | bool
+  loop: "{{ sway_packages }}"
+  vars:
+    sway_packages:
+      - 'sway'
+      - 'swaylock'
+      - 'swaybg'
+      - 'swayidle'
+      - 'wdisplays'
+      - 'waybar'
+      - 'cmatrix'
+      - "{{ sway__term_pkgs }}"
+      - "{{ sway__install_launcher }}"
+      - "{{ 'ttf-font-awesome' if sway__dynamic_names | bool else '' }}"
+      - "{{ 'swaync' if sway__notification_center | bool else '' }}"
+  loop_control:
+    label: "{{ item if item is string else item | to_json }}"
+  when: item | length > 0
