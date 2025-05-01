@@ -1,22 +1,4 @@
 ---
-__i3_packages:
-  - i3
-  - i3-gaps
-  # - i3-wm
-  - i3blocks
-  - i3lock
-  - i3status
-  - rofi
-  - feh
-  - tmux
-  - terminator
-  - i3lock
-  - xautolock
-  - maim
-  - imagemagick
-  - fonts-fork-awesome
-  - pulsemixer
-
 # Default Arch Linux package list
 sway_arch_packages:
   - 'sway'
