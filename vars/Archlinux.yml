@@ -12,6 +12,7 @@ sway_arch_packages:
   - "{{ sway__install_launcher }}"
   - "{{ 'ttf-font-awesome' if sway__dynamic_names | bool else '' }}"
   - "{{ 'swaync' if sway__notification_center | bool else '' }}"
+  - "{{ 'wlsunset' if sway__wlsunset | bool else '' }}"
 
 # Extra packages that users can define
 sway_arch_packages_extra: []

@@ -17,7 +17,9 @@
 - name: Install wlsunset
   ansible.builtin.import_tasks:
     file: "wlsunset.yml"
-  when: sway__wlsunset | bool
+  when: 
+    - sway__wlsunset | bool
+    - ansible_os_family != 'Archlinux'
 
 - name: Create sway configuration and features
   ansible.builtin.import_tasks:
