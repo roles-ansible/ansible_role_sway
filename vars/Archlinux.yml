@@ -16,3 +16,21 @@ __i3_packages:
   - imagemagick
   - fonts-fork-awesome
   - pulsemixer
+
+# Default Arch Linux package list
+sway_arch_packages:
+  - 'sway'
+  - 'swaylock'
+  - 'swaybg'
+  - 'swayidle'
+  - 'wdisplays'
+  - 'waybar'
+  - 'cmatrix'
+  - "{{ sway__term_pkgs }}"
+  - "{{ sway__install_launcher }}"
+  - "{{ 'ttf-font-awesome' if sway__dynamic_names | bool else '' }}"
+  - "{{ 'swaync' if sway__notification_center | bool else '' }}"
+
+# Extra packages that users can define
+sway_arch_packages_extra: []
+

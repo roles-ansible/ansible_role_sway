@@ -1,4 +1,8 @@
 ---
+- name: Include OS-specific variables (Archlinux)
+  ansible.builtin.include_vars:
+    file: "Archlinux.yml"
+
 - name: Create the `aur_builder` user
   become: true
   ansible.builtin.user:
@@ -22,20 +26,5 @@
     use: auto
   become: true
   become_user: aur_builder
-  loop: "{{ sway_packages }}"
-  vars:
-    sway_packages:
-      - 'sway'
-      - 'swaylock'
-      - 'swaybg'
-      - 'swayidle'
-      - 'wdisplays'
-      - 'waybar'
-      - 'cmatrix'
-      - "{{ sway__term_pkgs }}"
-      - "{{ sway__install_launcher }}"
-      - "{{ 'ttf-font-awesome' if sway__dynamic_names | bool else '' }}"
-      - "{{ 'swaync' if sway__notification_center | bool else '' }}"
-  loop_control:
-    label: "{{ item if item is string else item | to_json }}"
+  loop: "{{ sway_arch_packages + sway_arch_packages_extra }}"
   when: item | length > 0
