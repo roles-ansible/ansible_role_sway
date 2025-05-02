@@ -1,18 +1,26 @@
 ---
-__i3_packages:
-  - i3
-  - i3-gaps
-  # - i3-wm
-  - i3blocks
-  - i3lock
-  - i3status
-  - rofi
-  - feh
-  - tmux
-  - terminator
-  - i3lock
-  - xautolock
-  - maim
-  - imagemagick
-  - fonts-fork-awesome
-  - pulsemixer
+# Default Arch Linux package list
+sway_arch_packages:
+  - 'sway'
+  - 'swaylock'
+  - 'swaybg'
+  - 'swayidle'
+  - 'wdisplays'
+  - 'waybar'
+  - 'cmatrix'
+  - 'qpwgraph'
+  - 'pavucontrol'
+  - 'wlogout'
+  - 'light'
+  - "{{ sway__term_pkgs }}"
+  - "{{ sway__install_launcher }}"
+  - "{{ 'ttf-font-awesome' if sway__dynamic_names | bool else '' }}"
+  - "{{ 'swaync' if sway__notification_center | bool else '' }}"
+  - "{{ 'wlsunset' if sway__wlsunset | bool else '' }}"
+
+# Extra packages that users can define
+sway_arch_packages_extra: []
+
+# AUR builder configuration
+sway__aur_builder_username: "aur_builder"
+sway__create_aur_builder: true

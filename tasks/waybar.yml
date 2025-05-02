@@ -10,6 +10,7 @@
     - 'qpwgraph'
     - 'pavucontrol'
     - 'light'
+  when: ansible_os_family != 'Archlinux'
 
 - name: Create waybar config folder
   become: true
