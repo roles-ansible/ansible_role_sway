@@ -24,4 +24,3 @@ sway_arch_packages_extra: []
 # AUR builder configuration
 sway__aur_builder_username: "aur_builder"
 sway__create_aur_builder: true
-

@@ -29,6 +29,6 @@
   become: true
   become_user: "{{ sway__aur_builder_username }}"
   loop: "{{ sway_arch_packages + sway_arch_packages_extra }}"
-  when: 
+  when:
     - item | length > 0
     - sway__create_aur_builder | bool
