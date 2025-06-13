@@ -44,4 +44,4 @@
     state: "present"
   become: true
   when: sway__notification_center | bool
-  loop: "{{ sway__archlinux_swaync }}
+  loop: "{{ sway__archlinux_swaync }}"
