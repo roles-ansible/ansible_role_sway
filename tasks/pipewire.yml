@@ -1,6 +1,6 @@
 ---
 # See https://elis.nu/blog/2021/02/detailed-setup-of-screen-sharing-in-sway/
-- name: Ensure waybar is installed.
+- name: Ensure pipewire is installed.
   ansible.builtin.package:
     name: "{{ item }}"
     state: "present"

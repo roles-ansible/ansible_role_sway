@@ -1,7 +1,47 @@
 ---
-- name: Ensure i3 packages are installed  # noqa: H1901
-  community.general.pacman:
-    name: "{{ i3_packages }}"
-    state: present
-    update_cache: true
+- name: Upgrade Cache
   become: true
+  community.general.pacman:
+    update_cache: true
+  when:
+    - ansible_pkg_mgr == "pacman"
+
+- name: Ensure swaywm is installed.
+  community.general.pacman:
+    name: "{{ item }}"
+    state: "present"
+  become: true
+  loop: "{{ sway__archlinux_packages }}"
+
+- name: Ensure font-awesome is installed
+  community.general.pacman:
+    name: "{{ item }}"
+    state: "present"
+  become: true
+  loop:
+    - 'otf-font-awesome'
+    - 'ttf-font-awesome'
+    - 'python-virtualenv'
+  when: sway__dynamic_names | bool
+
+- name: Ensure terminal Packages are installed
+  community.general.pacman:
+    name: "{{ item }}"
+    state: "present"
+  become: true
+  loop: "{{ sway__term_pkgs }}"
+
+- name: Ensure launcher Packages are installed
+  community.general.pacman:
+    name: "{{ item }}"
+    state: "present"
+  become: true
+  loop: "{{ sway__install_launcher }}"
+
+- name: Ensure sway notification center is installed
+  community.general.pacman:
+    name: "{{ item }}"
+    state: "present"
+  become: true
+  when: sway__notification_center | bool
+  loop: "{{ sway__archlinux_swaync }}

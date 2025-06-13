@@ -12,22 +12,14 @@
     name: "{{ item }}"
     state: "present"
   become: true
-  with_items:
-    - 'sway'
-    - 'sway-backgrounds'
-    - 'swaylock'
-    - 'swaybg'
-    - 'swayidle'
-    - 'swayimg'
-    - 'wdisplays'
-    - 'cmatrix'
+  loop: "{{ sway__debian_packages }}"
 
 - name: Ensure font-awesome is installed
   ansible.builtin.apt:
     name: "{{ item }}"
     state: "present"
   become: true
-  with_items:
+  loop:
     - 'fonts-font-awesome'
     - 'virtualenv'
   when: sway__dynamic_names | bool
@@ -37,18 +29,19 @@
     name: "{{ item }}"
     state: "present"
   become: true
-  with_items: "{{ sway__term_pkgs }}"
+  loop: "{{ sway__term_pkgs }}"
 
 - name: Ensure launcher Packages are installed
   ansible.builtin.apt:
     name: "{{ item }}"
     state: "present"
   become: true
-  with_items: "{{ sway__install_launcher }}"
+  loop: "{{ sway__install_launcher }}"
 
 - name: Ensure sway notification center is installed
   ansible.builtin.apt:
-    name: "sway-notification-center"
+    name: "item"
     state: "present"
   become: true
   when: sway__notification_center | bool
+  loop: "{{ sway__debian_swaync }}"
