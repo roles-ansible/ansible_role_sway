@@ -13,7 +13,7 @@ sway__reload: '$mod+Shift+r'
 sway__term_pkgs:
   - foot
   - foot-terminfo
-  - foot-themes
+
 sway__keyboard_settings: true
 sway__keyboard_lang: 'de'
 sway__lock: 'swaylock --color 00000000 && killall -9 cmatrix & foot -F cmatrix -a -L && exit'
@@ -94,7 +94,7 @@ sway__keybindings:
   - keybinding:
     name: display settings
     key: $mod+Shift+F7
-    exec: wdisplays
+    exec: "{% if ansible_os_family == 'Debian' %}wdisplays{% else %}nwg-displays{% endif %}"
 
 sway__pipewire: true
 sway__notification_center: true

@@ -6,7 +6,6 @@
   become: true
   with_items:
     - 'waybar'
-    - 'wlogout'
     - 'qpwgraph'
     - 'pavucontrol'
     - 'light'
