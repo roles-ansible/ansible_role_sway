@@ -40,7 +40,7 @@
 
 - name: Ensure sway notification center is installed
   ansible.builtin.apt:
-    name: "item"
+    name: "{{ item }}"
     state: "present"
   become: true
   when: sway__notification_center | bool
