@@ -18,11 +18,23 @@ sway__archlinux_packages:
   - 'nwg-displays'
   - 'cmatrix'
 
+sway__redhat_packages:
+  - 'sway'
+  - 'swayimg'
+  - 'swaylock'
+  - 'swaybg'
+  - 'swayidle'
+  - 'wdisplays'
+  - 'cmatrix'
+
 sway__debian_swaync:
   - 'sway-notification-center'
 
 sway__archlinux_swaync:
   - 'swaync'
+
+sway__redhat_swaync:
+  - 'SwayNotificationCenter'
 
 playbook_version_number: 18  # should be int
 playbook_version_path: 'role-roles-ansible.sway.version'

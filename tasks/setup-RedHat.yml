@@ -1,6 +1,46 @@
 ---
-- name: Ensure i3 packages are installed.
+- name: Update dnf cache
   ansible.builtin.dnf:
-    name: "{{ i3_packages }}"
-    state: present
+    update_cache: true
   become: true
+  when:
+    - ansible_pkg_mgr == "dnf"
+
+- name: Ensure swaywm is installed.
+  ansible.builtin.dnf:
+    name: "{{ item }}"
+    state: "present"
+  become: true
+  loop: "{{ sway__redhat_packages }}"
+
+- name: Ensure font-awesome is installed
+  ansible.builtin.dnf:
+    name: "{{ item }}"
+    state: "present"
+  become: true
+  loop:
+    - 'fontawesome-fonts-all'
+    - 'python3-virtualenv'
+  when: sway__dynamic_names | bool
+
+- name: Ensure terminal Packages are installed
+  ansible.builtin.dnf:
+    name: "{{ item }}"
+    state: "present"
+  become: true
+  loop: "{{ sway__term_pkgs }}"
+
+- name: Ensure launcher Packages are installed
+  ansible.builtin.dnf:
+    name: "{{ item }}"
+    state: "present"
+  become: true
+  loop: "{{ sway__install_launcher }}"
+
+- name: Ensure sway notification center is installed
+  ansible.builtin.dnf:
+    name: "{{ item }}"
+    state: "present"
+  become: true
+  when: sway__notification_center | bool
+  loop: "{{ sway__redhat_swaync }}"
