@@ -41,6 +41,8 @@ With this ansible role you deploy a sway configuration with optionally swaylock,
 | ``sway__keybindings_extra`` | ``[]`` | Empty list for additional keybindings |
 | ``sway__pipewire`` | ``[]`` | Install some requirements for desktop sharing... |
 | ``sway__notification_center`` | ``true`` | Use way notification center for notifications |
+| ``sway__additional_exec_always`` | ``[]`` | List of autostart programms like ``nm-applet`` |
+| ``sway__background_image`` | ``/usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png`` | Background image |
 | ``submodules_versioncheck`` | ``false`` | Basic Versionscheck to prevent running older version of this role |
 
 

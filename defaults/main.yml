@@ -101,6 +101,7 @@ sway__pipewire: true
 sway__notification_center: true
 
 sway__keybindings_extra: []
+sway__additional_exec_always: []
 sway__background_image: '/usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png'
 
 # version check for this role?

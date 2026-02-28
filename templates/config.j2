@@ -269,8 +269,11 @@ bar {
     }
 }
 {% endif %}
-exec_always --no-startup-id exec wlsunset {{ sway__wlsunset_params }}
 {% if sway__wlsunset | bool %}
-
+exec_always --no-startup-id exec wlsunset {{ sway__wlsunset_params }}
 {% endif %}
+
+{% for programm in sway__additional_exec_always %}
+exec_always --no-startup-id {{ programm }}
+{% endfor %}
 include /etc/sway/config.d/*
