@@ -19,6 +19,7 @@ sway__keyboard_lang: 'de'
 sway__lock: 'swaylock --color 00000000 && killall -9 cmatrix & foot -F cmatrix -a -L && exit'
 sway__swaylock: |
   color=000000ff
+sway__swayidle: true
 sway__waybar: true
 sway__waybar_modules_left: ["sway/workspaces", "sway/mode", "sway/scratchpad"]
 sway__waybar_modules_center: ["sway/window"]
@@ -44,8 +45,8 @@ sway__waybar_modules_right:
 sway__launcher: 'fuzzel'
 sway__install_launcher: ['fuzzel']
 sway__waybar_font_size: '13px'
-sway__waybar_light_up: 'light -A 1'
-sway__waybar_light_down: 'light -U 1'
+sway__waybar_light_up: 'brightnessctl s +1%'
+sway__waybar_light_down: 'brightnessctl s 1%-'
 sway__waybar_light_suid: true
 sway__wlsunset: true
 sway__wlsunset_params: '-l 49 -L 8.4'
@@ -86,20 +87,21 @@ sway__keybindings:
   - keybinding:
     name: darker
     key: XF86MonBrightnessDown
-    exec: --no-startup-id light -U 9
+    exec: --no-startup-id rightnessctl s 6%-
   - keybinding:
     name: lighter
     key: XF86MonBrightnessUp
-    exec: --no-startup-id light -A 6
+    exec: --no-startup-id rightnessctl s +9%
   - keybinding:
     name: display settings
     key: $mod+Shift+F7
-    exec: "{% if ansible_os_family == 'Debian' %}wdisplays{% else %}nwg-displays{% endif %}"
+    exec: "{% if ansible_facts['os_family'] == 'Debian' %}wdisplays{% else %}nwg-displays{% endif %}"
 
 sway__pipewire: true
 sway__notification_center: true
 
 sway__keybindings_extra: []
+sway__background_image: '/usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png'
 
 # version check for this role?
 submodules_versioncheck: false

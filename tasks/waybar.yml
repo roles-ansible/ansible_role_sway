@@ -8,7 +8,7 @@
     - 'waybar'
     - 'qpwgraph'
     - 'pavucontrol'
-    - 'light'
+    - 'brightnessctl'
 
 - name: Create waybar config folder
   become: true
@@ -69,10 +69,10 @@
     group: "{{ swayusr.user }}"
     backup: true
 
-- name: Ensure the SUID bit is set on /usr/bin/light
+- name: Ensure the SUID bit is set on /usr/bin/brightnessctl
   become: true
   ansible.builtin.file:
-    path: '/usr/bin/light'
+    path: '/usr/bin/brightnessctl'
     mode: '4755'
     owner: 'root'
     group: 'root'
