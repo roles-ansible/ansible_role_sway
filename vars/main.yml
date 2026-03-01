@@ -17,6 +17,7 @@ sway__archlinux_packages:
   - 'swayidle'
   - 'nwg-displays'
   - 'cmatrix'
+  - 'python-requests'
 
 sway__redhat_packages:
   - 'sway'
@@ -36,5 +37,5 @@ sway__archlinux_swaync:
 sway__redhat_swaync:
   - 'SwayNotificationCenter'
 
-playbook_version_number: 21
+playbook_version_number: 22
 playbook_version_path: 'role-roles-ansible.sway.version'
