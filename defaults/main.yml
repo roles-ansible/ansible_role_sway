@@ -11,8 +11,13 @@ sway__logo_key: 'Mod4'
 sway__term: 'foot'
 sway__reload: '$mod+Shift+r'
 sway__term_pkgs:
-  - foot
-  - foot-terminfo
+  - 'foot'
+  - 'foot-terminfo'
+
+sway__font_arch_pkgs:
+  - 'ttf-nerd-fonts-symbols-common'
+  - 'ttf-nerd-fonts-symbols-mono'
+  - 'noto-fonts-emoji'
 
 sway__keyboard_settings: true
 sway__keyboard_lang: 'de'

@@ -37,5 +37,5 @@ sway__archlinux_swaync:
 sway__redhat_swaync:
   - 'SwayNotificationCenter'
 
-playbook_version_number: 22
+playbook_version_number: 23
 playbook_version_path: 'role-roles-ansible.sway.version'

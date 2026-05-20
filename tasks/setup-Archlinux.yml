@@ -13,6 +13,13 @@
   become: true
   loop: "{{ sway__archlinux_packages }}"
 
+- name: Ensure some more fonts are installed
+  community.general.pacman:
+    name: "{{ item }}"
+    state: "present"
+  become: true
+  loop: "{{ sway__font_arch_pkgs }}"
+
 - name: Ensure font-awesome is installed
   community.general.pacman:
     name: "{{ item }}"
