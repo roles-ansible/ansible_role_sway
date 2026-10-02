@@ -47,6 +47,10 @@ sway__waybar_modules_right:
   - "tray"
   - "custom/notification"
 
+sway__display: false
+sway__display_output:
+  - 'output eDP-1 enable pos 0 0'
+
 sway__launcher: 'fuzzel'
 sway__install_launcher: ['fuzzel']
 sway__waybar_font_size: '13px'

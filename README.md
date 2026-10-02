@@ -17,7 +17,7 @@ With this ansible role you deploy a sway configuration with optionally swaylock,
 | Variable | Value | Description |
 | -------- | ----- | ----------- |
 | ``sway__user_list`` | *(see [defaults/main.yml](defaults/main.yml))* | A list of all users and their home directory |
-| ``sway__dynamic_names`` | ``false`` | 
+| ``sway__dynamic_names`` | ``false`` | enable dynamic names |
 | ``sway__logo_key`` | ``Mod4`` | Logo Key |
 | ``sway__term`` | ``foot`` | Sway default terminal |
 | ``sway__reload`` | ``$mod+Shift+r`` | Key binding to reload sway config |
@@ -36,6 +36,8 @@ With this ansible role you deploy a sway configuration with optionally swaylock,
 | ``sway__waybar_light_up`` | ``light -A 1`` | Waybar light module |
 | ``sway__waybar_light_down`` | ``light -U 1`` | Waybar  light module |
 | ``sway__wlsunset`` | ``true`` | Enable wlsunset |
+| ``sway__display`` | ``false`` | Enable custom display script |
+| ``sway__display_output``|  *(see [defaults/main.yml](defaults/main.yml))* | Custom display options |
 | ``sway__wlsunset_params`` | ``-l 49 -L 8.4`` |
 | ``sway__keybindings`` | *(see [defaults/main.yml](defaults/main.yml))* | List of sway keybindings |
 | ``sway__keybindings_extra`` | ``[]`` | Empty list for additional keybindings |
