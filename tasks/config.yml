@@ -74,3 +74,18 @@
   loop_control:
     label: "{{ swayusr.home }}/.config/sway/config"
     loop_var: swayusr
+
+- name: Deploy sway display config file
+  become: true
+  ansible.builtin.template:
+    src: 'templates/display.sh.j2'
+    dest: "{{ swayusr.home }}/.config/sway/display.sh"
+    mode: '0640'
+    owner: "{{ swayusr.user }}"
+    group: "{{ swayusr.user }}"
+    backup: true
+  loop: "{{ sway__user_list | flatten(1) }}"
+  loop_control:
+    label: "{{ swayusr.home }}/.config/sway/display.sh"
+    loop_var: swayusr
+  when: sway__display | bool

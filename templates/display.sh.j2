@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+{% for command in sway__display_output %}
+swaymsg {{ command }}
+{% endfor %}
